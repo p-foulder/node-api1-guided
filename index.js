@@ -1,2 +1,2 @@
 // import the server and start it!
-console.log("Why hello!!!!!!")
+const server = require("./api/server.js")
