@@ -9,10 +9,7 @@ server.use(express.json())
 
 // ENDPOINTS
 
-// [GET] / (Hello World endpoint)
-server.use("*",(req,res)=>{
-    res.status(200).json({message:"Hey what's up?"})
-})
+
 
 // [GET] /api/dogs (R of CRUD, fetch all dogs)
 server.get("/api/dogs",(req,res)=>{
@@ -29,6 +26,11 @@ server.get("/api/dogs",(req,res)=>{
 // [POST] /api/dogs (C of CRUD, create new dog from JSON payload)
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
+
+// [GET] / (Hello World endpoint)
+server.use("*",(req,res)=>{
+    res.status(404).json({message:"404 not found"})
+})
 
 // EXPOSING THE SERVER TO OTHER MODULES
 module.exports = server
