@@ -8,11 +8,20 @@ const server = express()
 server.use(express.json())
 
 // ENDPOINTS
+
+// [GET] / (Hello World endpoint)
 server.use("*",(req,res)=>{
     res.status(200).json({message:"Hey what's up?"})
 })
-// [GET] / (Hello World endpoint)
+
 // [GET] /api/dogs (R of CRUD, fetch all dogs)
+server.get("/api/dogs",(req,res)=>{
+    Dog.findAll()
+        .then(dogs=>{
+            console.log(dogs)
+            res.status(200).json(dogs)
+        })
+})
 // [GET] /api/dogs/:id (R of CRUD, fetch dog by :id)
 // [POST] /api/dogs (C of CRUD, create new dog from JSON payload)
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
