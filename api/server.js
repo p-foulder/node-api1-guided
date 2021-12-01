@@ -58,6 +58,9 @@ server.put("/api/dogs/:id", async (req,res)=>{
     const changes = req.body
 
     try{
+        if(!changes.name || !changes.weight){
+            res.status(422).json({message:"Name and weight required"})
+        }
         const updatedDog = await Dog.update(id,changes)
         res.status(200).json(updatedDog)
     }catch(err){
