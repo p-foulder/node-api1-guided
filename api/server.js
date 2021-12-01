@@ -56,6 +56,12 @@ server.post("/api/dogs",(req,res)=>{
 server.put("/api/dogs/:id",(req,res)=>{
     const {id} = req.params
     const changes = req.body
+
+    try{
+        const updatedDog = await Dog.update(id,changes)
+    }catch(err){
+        res.status(500).json({message:err.message})
+    }
 })
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
 
