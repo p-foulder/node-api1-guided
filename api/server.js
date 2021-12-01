@@ -73,7 +73,9 @@ server.put("/api/dogs/:id", async (req,res)=>{
     }
 })
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
-
+server.delete("/api/dogs/:id",(req,res)=>{
+    
+})
 // [GET] / (Hello World endpoint)
 server.use("*",(req,res)=>{
     res.status(404).json({message:"404 not found"})
