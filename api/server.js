@@ -29,6 +29,9 @@ server.get("/api/dogs/:id",(req,res)=>{
         .then(dog =>{
             res.status(200).json(dog)
         })
+        .catch(err=>{
+            res.status(500).json({message:err.message})
+        })
 })
 // [POST] /api/dogs (C of CRUD, create new dog from JSON payload)
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
