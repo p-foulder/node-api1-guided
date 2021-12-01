@@ -53,7 +53,10 @@ server.post("/api/dogs",(req,res)=>{
     }    
 })
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
-
+server.put("/api/dogs/:id",(req,res)=>{
+    const {id} = req.params
+    const changes = req.body
+})
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
 
 // [GET] / (Hello World endpoint)
