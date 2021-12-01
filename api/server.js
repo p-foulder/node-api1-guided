@@ -21,6 +21,9 @@ server.get("/api/dogs",(req,res)=>{
             console.log(dogs)
             res.status(200).json(dogs)
         })
+        .catch(err=>{
+            res.status(500).json({message:err.message})
+        })
 })
 // [GET] /api/dogs/:id (R of CRUD, fetch dog by :id)
 // [POST] /api/dogs (C of CRUD, create new dog from JSON payload)
