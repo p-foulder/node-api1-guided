@@ -26,6 +26,9 @@ server.get("/api/dogs",(req,res)=>{
 server.get("/api/dogs/:id",(req,res)=>{
     const idVar = req.params.id
     Dog.findById(idVar)
+        .then(dog =>{
+            res.status(200).json(dog)
+        })
 })
 // [POST] /api/dogs (C of CRUD, create new dog from JSON payload)
 // [PUT] /api/dogs/:id (U of CRUD, update dog with :id using JSON payload)
