@@ -77,6 +77,7 @@ server.delete("/api/dogs/:id",async (req,res)=>{
     try{
         const {id} = req.params
         const deletedDog = await Dog.delete(id)
+        res.status(201).json(deletedDog)
     }catch(err){
         res.status(500).json({message:err.message})
     }
