@@ -27,7 +27,12 @@ server.get("/api/dogs/:id",(req,res)=>{
     const idVar = req.params.id
     Dog.findById(idVar)
         .then(dog =>{
-            res.status(200).json(dog)
+            if(!dog){
+                
+            }else{
+                res.status(200).json(dog)
+            }
+            
         })
         .catch(err=>{
             res.status(500).json({message:err.message})
