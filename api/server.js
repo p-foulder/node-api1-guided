@@ -8,7 +8,9 @@ const server = express()
 server.use(express.json())
 
 // ENDPOINTS
-
+server.use("*",(req,res)=>{
+    res.status(200).json({message:"Hey what's up?"})
+})
 // [GET] / (Hello World endpoint)
 // [GET] /api/dogs (R of CRUD, fetch all dogs)
 // [GET] /api/dogs/:id (R of CRUD, fetch dog by :id)
